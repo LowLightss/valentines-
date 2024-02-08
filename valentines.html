@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: heartbeat 1s infinite;
+            display: inline-block;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart:before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: 50px;
+        }
+
+        .text {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .options {
+            margin-top: 20px;
+        }
+
+        .link {
+            color: #4CAF50;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        #loveMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart"></div>
+        <div class="text">Will you be my valentine?</div>
+        <div class="options">
+            <a href="javascript:void(0);" class="link" onclick="showLove()">Yes</a>
+            <a href="#" class="link" onclick="showConfirmation()">No</a>
+        </div>
+        <div id="loveMessage"></div>
+    </div>
+
+    <script>
+        function showLove() {
+            window.location.href = "https://example.com/love-message";
+        }
+
+        function showConfirmation() {
+            document.getElementById("loveMessage").innerHTML = "Are you sure?";
+            document.getElementById("loveMessage").style.color = "#FF5733";
+            document.getElementById("loveMessage").style.display = "block";
+        }
+    </script>
+</body>
+</html>
+
+
+
